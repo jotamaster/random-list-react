@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar'
-import AddRegister from '../AddRegister/AddRegister'
-import 'antd/dist/antd.css';
+import React, { Component } from 'react'
+import Navbar from '../Navbar'
+import AddRegister from '../AddRegister'
+import List from '../List/List.jsx'
+import 'antd/dist/antd.css'
 import './Container.css'
-import { Layout, } from 'antd';
+import { Layout, Row, Col } from 'antd'
 
 
 const { Content } = Layout;
@@ -17,13 +18,20 @@ class Container extends Component {
 
         return (
             <Layout className="layout">
-                <Navbar/>
+                <Navbar />
 
-                <Content style={{ padding: '0 50px', height : '90vh' }}>
+                <Content style={{ padding: '0 50px', height: '90vh' }}>
+                    <Row gutter={16}>
+                        <Col sm={24} md={10}>
+                            <AddRegister />
+                        </Col>
+                        <Col  sm={24} md={14}>
+                            <List/>
+                        </Col>
+                    </Row>
 
-                    <AddRegister/>
                 </Content>
-                
+
             </Layout>
         )
     }
