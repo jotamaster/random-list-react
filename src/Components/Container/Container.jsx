@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar'
 import AddRegister from '../AddRegister'
-import List from '../List/List.jsx'
+import List from '../List/'
 import 'antd/dist/antd.css'
 import './Container.css'
 import { Layout, Row, Col } from 'antd'
