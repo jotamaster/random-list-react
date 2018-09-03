@@ -7,12 +7,12 @@ class Register extends Component{
     
     render (){
 
-        let registro = this.props.registro
-        let id = this.props.posicion
+        let {registro} = this.props
+        let { posicion }= this.props
         return(
             
-
-                <List.Item actions={[<a>Eliminar</a>]}>{id} {registro}</List.Item>
+                
+                <List.Item actions={[<a>Eliminar</a>]}>{posicion} {registro}</List.Item>
             
         )
     }
