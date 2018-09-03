@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Register from '../Register';
 import { Card, Button, Row, Col } from 'antd';
 import { Input } from 'antd';
 import 'antd/dist/antd.css'
@@ -10,23 +9,11 @@ import 'antd/dist/antd.css'
 class AddRegister extends Component {
     state = {
         size: 'default',
+        //un arreglo que tendra los registros
         registers : []
     };
-
-    add(e){
-        const registerInput = document.getElementById('registro')
-        
-        let newRegister ={
-            register: registerInput.value
-        }
-
-        let registers =  this.state.registers
-        registers.unshift(newRegister)
-        this.setState({
-            registers : registers
-        })
-    }
-
+ 
+//esta arrow function es de ant design 
     handleSizeChange = (e) => {
         this.setState({ size: e.target.value });
     }
@@ -40,15 +27,10 @@ class AddRegister extends Component {
                             <Input id="registro" style={{marginBottom:10}} placeholder="Nuevo Registro" />
                         </Col>
                         <Col sm={24} md={6}>
-                            <Button onClick={this.add.bind(this)} type="primary" icon="plus" size={size}>Agregar</Button>
+                            {/* el onclick dispara el evento que se encuentra en el contexto de este componenete */}
+                            <Button onClick={() => this.props.addOp(document.getElementById('registro'))}   type="primary" icon="plus" size={size}>Agregar</Button>
                         </Col>
                     </Row>
-                    <ul>
-                    {this.state.registers.map(register =>{
-                        return <Register/>
-                    })}
-                    </ul>
-                    
                 </Card>
             
         );
