@@ -12,7 +12,7 @@ class AddRegister extends Component {
         //un arreglo que tendra los registros
         registers : []
     };
- 
+
 //esta arrow function es de ant design 
     handleSizeChange = (e) => {
         this.setState({ size: e.target.value });

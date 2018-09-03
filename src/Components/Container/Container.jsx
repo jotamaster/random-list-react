@@ -4,7 +4,7 @@ import AddRegister from '../AddRegister'
 import List from '../List/'
 import 'antd/dist/antd.css'
 import './Container.css'
-import { Layout, Row, Col } from 'antd'
+import { Layout, Row, Col, message } from 'antd'
 
 
 const { Content } = Layout;
@@ -17,20 +17,25 @@ class Container extends Component {
         registers : []
     };
     add(e){
+        
         //esta constante pesca el value del input de id registro
         const registerInput = e
-        
-        let newRegister ={
-            register: registerInput.value
+        if(registerInput.value){
+            let newRegister ={
+                register: registerInput.value
+            }
+            //register pesca el valor del state resgiters
+            let registers =  this.state.registers
+            // unshift va agregando elementos de newRegister al array registers
+            registers.unshift(newRegister)
+            //se setea el state register con el valor de register de la funcion add()
+            this.setState({
+                registers : registers
+            })
+        }else{
+            message.warning('El campo registro esta vacio');
         }
-        //register pesca el valor del state resgiters
-        let registers =  this.state.registers
-        // unshift va agregando elementos de newRegister al array registers
-        registers.unshift(newRegister)
-        //se setea el state register con el valor de register de la funcion add()
-        this.setState({
-            registers : registers
-        })
+        
     }
        
     render() {
