@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Register from '../Register'
-import {Card,Row,Col} from 'antd'
+import {Card,Row,Col,List as Lista} from 'antd'
 
 
 class List extends Component{
@@ -9,6 +9,7 @@ class List extends Component{
             <Card title="Lista de Registros" style={{ width: '100%', marginTop: 20, backgroundColor: '' }}>
                     <Row gutter={16}>
                         <Col sm={24} md={14}>
+                        <Lista bordered>
                         {this.props.registros.map((register,index) =>{
                         return <Register
                                     key ={index}
@@ -17,6 +18,8 @@ class List extends Component{
                                  
                                 />
                         })}
+                        </Lista>
+                        
                         </Col>
                         <Col sm={24} md={6}>
                        

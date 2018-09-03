@@ -32,6 +32,7 @@ class Container extends Component {
             this.setState({
                 registers : registers
             })
+            
         }else{
             message.warning('El campo registro esta vacio');
         }
