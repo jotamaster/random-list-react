@@ -36,6 +36,20 @@ class Container extends Component {
 
     }
 
+    delete(e){
+        console.log(e)
+       
+        let registers =  this.state.registers
+
+        registers.splice(e,1)
+
+        this.setState({
+            registers : registers
+        })
+    }
+
+    
+
     render() {
 
         return (
@@ -47,7 +61,7 @@ class Container extends Component {
                             <AddRegister  addOp={this.add.bind(this)} />
                         </Col>
                         <Col sm={24} md={14}>
-                            <List registros={this.state.registers} />
+                            <List registros={this.state.registers} deleteOp={this.delete.bind(this)} />
                         </Col>
                     </Row>
                 </Content>

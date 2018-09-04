@@ -20,6 +20,7 @@ class List extends Component{
                                         key ={index}
                                         posicion ={index}
                                         registro={register.register}
+                                        deleteOp={this.props.deleteOp}
                                      
                                     />
                             })}
