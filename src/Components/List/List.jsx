@@ -1,16 +1,24 @@
 import React, {Component} from 'react'
 import Register from '../Register'
-import {Card,Row,Col,List as Lista} from 'antd'
+import {Card,Row,Col,List as Lista, Button} from 'antd'
 
 
 class List extends Component{
+
+
+
+
     render(){
-        console.log(this.props.registros)
         return(
             
-            <Card title="Lista de Registros" style={{ width: '100%', marginTop: 20, backgroundColor: '' }}>
+            <Card title="Lista de registros" style={{ width: '100%', marginTop: 20, backgroundColor: '' }} >
+           
                     <Row gutter={16}>
-                        <Col sm={24} md={14}>
+                    <Col sm={24} md={24}>
+                    <Button onClick={() => { this.props.aleatorioOp()} }  type="primary"  >aleatorio</Button>
+                       </Col>
+                       <br/><br/>
+                        <Col sm={24} md={24}>
                         {
                             this.props.registros.length  ?  <Lista bordered>
                         
@@ -31,9 +39,7 @@ class List extends Component{
                       
                         
                         </Col>
-                        <Col sm={24} md={6}>
-                       
-                        </Col>
+                      
                     </Row>
                 </Card>
         )
